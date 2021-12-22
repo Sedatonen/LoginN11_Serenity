@@ -15,7 +15,7 @@ import static net.serenitybdd.screenplay.questions.WebElementQuestion.the;
 
 public class n11LoginStepDef {
 
-    Actor actor = Actor.named("patikabootcampers");
+    Actor actor = Actor.named("Sedat");
 
     @Managed
     WebDriver webDriver;
@@ -23,15 +23,14 @@ public class n11LoginStepDef {
     @Given("user launch browser and open the n11 main page")
     public void user_launch_browser_and_open_the_n11_main_page() {
         actor.can(BrowseTheWeb.with(webDriver));
+        webDriver.manage().window().maximize();
         actor.wasAbleTo(NavigateTo.theN11HomePage());
     }
 
     @When("user login n11 with facebook valid credentials")
     public void user_login_n11_with_facebook_valid_credentials() {
-        //cerkemamle@vusra.com not verified mail
-        actor.attemptsTo(LoginWithFacebook.loginThePage("bedrajatru@vusra.com",
+        actor.attemptsTo(LoginWithFacebook.loginThePage("cerkemamle@vusra.com",
                 "testautomation1234"));
-        System.out.println("testfinal");
     }
 
     @Then("user verify the logged in successfully")
